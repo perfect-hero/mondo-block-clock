@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "id": "io.github.perfect-hero.mondo-block-clock",
+  "name": "Block Clock",
+  "version": "0.7.0",
+  "author": "Perfect Hero",
+  "license": "MIT",
+  "description": "Bitcoin timechain dial: block height, supply, halving and difficulty rings, last-24h blocks, price — in the bar, a popup, on the desktop, or fullscreen.",
+  "kinds": ["service", "bar-widget", "overlay"],
+  "entryPoints": {
+    "service": "Service.qml",
+    "barWidget": "BarWidget.qml",
+    "overlay": "Overlay.qml"
+  },
+  "barWidget": {
+    "displayName": "Block Clock",
+    "description": "BTC/USD price in the bar; click for the full Block Clock dial.",
+    "category": "Info",
+    "allowMultiple": false,
+    "defaultSection": "right",
+    "defaults": {
+      "apiBase": "https://mempool.space",
+      "refreshIntervalSec": 30,
+      "priceRefreshSec": 120,
+      "showTimerRing": true,
+      "showHashrate": false,
+      "desktopWidget": false,
+      "desktopScreen": "",
+      "desktopAnchor": "center",
+      "desktopSize": 480,
+      "desktopMargin": 48,
+      "desktopOpacity": 90,
+      "desktopStats": true,
+      "timeFormat": "h:mm AP",
+      "screensaver": false,
+      "chain": "btc",
+      "xbtApiBase": "https://mempool.lazarus-xbt.xyz"
+    },
+    "schema": [
+      { "key": "apiBase", "type": "string", "label": "mempool API base URL", "defaultValue": "https://mempool.space", "description": "Any mempool instance, without a trailing slash." },
+      { "key": "refreshIntervalSec", "type": "integer", "label": "Block height poll (seconds)", "min": 15, "max": 300, "step": 5, "defaultValue": 30 },
+      { "key": "priceRefreshSec", "type": "integer", "label": "Price refresh (seconds)", "min": 60, "max": 900, "step": 30, "defaultValue": 120 },
+      { "key": "showTimerRing", "type": "boolean", "label": "Show the 10-minute block timer ring", "defaultValue": true },
+      { "key": "showHashrate", "type": "boolean", "label": "Show network hashrate", "defaultValue": false },
+      { "key": "desktopWidget", "type": "boolean", "label": "Show the dial on the desktop", "defaultValue": false },
+      { "key": "desktopScreen", "type": "string", "label": "Desktop monitor (blank = all)", "defaultValue": "" },
+      { "key": "desktopAnchor", "type": "enum", "label": "Desktop position", "options": ["center", "top-left", "top-right", "bottom-left", "bottom-right"], "defaultValue": "center" },
+      { "key": "desktopSize", "type": "integer", "label": "Desktop dial size (px)", "min": 240, "max": 1200, "step": 20, "defaultValue": 480 },
+      { "key": "desktopMargin", "type": "integer", "label": "Desktop margin (px)", "min": 0, "max": 400, "step": 4, "defaultValue": 48 },
+      { "key": "desktopOpacity", "type": "integer", "label": "Desktop opacity (%)", "min": 20, "max": 100, "step": 5, "defaultValue": 90 },
+      { "key": "desktopStats", "type": "boolean", "label": "Show stats around the desktop dial", "defaultValue": true },
+      { "key": "screensaver", "type": "boolean", "label": "Use the fullscreen dial as the screensaver", "defaultValue": false, "description": "Opens after the shell's idle.screensaver timeout; turn Omarchy's own screensaver off (omarchy toggle screensaver)." },
+      { "key": "chain", "type": "string", "label": "Chain", "defaultValue": "btc", "description": "btc (Bitcoin, SHA-256) or xbt (Bitcoin BLAKE2b). Switch with c or the BTC | XBT switch on the dial." },
+      { "key": "xbtApiBase", "type": "string", "label": "XBT mempool API base URL", "defaultValue": "https://mempool.lazarus-xbt.xyz", "description": "The mempool instance used when the chain is xbt." },
+      { "key": "timeFormat", "type": "string", "label": "Time format", "defaultValue": "h:mm AP", "description": "Qt time format, e.g. h:mm AP or HH:mm." }
+    ]
+  }
+}
