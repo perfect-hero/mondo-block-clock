@@ -1,0 +1,38 @@
+name: Bug report
+description: Something in Block Clock is wrong
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you did, what you expected, and what you saw instead.
+    validations:
+      required: true
+  - type: input
+    id: omarchy
+    attributes:
+      label: Omarchy version
+      description: Output of `omarchy --version`, if you have it.
+      placeholder: "4.0.x"
+    validations:
+      required: false
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Where
+      options:
+        - Bar
+        - Popup
+        - Desktop dial
+        - Fullscreen
+        - Screensaver
+        - Install or update
+  - type: textarea
+    id: chain
+    attributes:
+      label: Chain and settings
+      description: BTC or XBT, and any `omarchy bar set` values that are not the defaults. Leave out personal URLs if you would rather not share them.
+    validations:
+      required: false

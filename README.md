@@ -50,6 +50,12 @@ the fullscreen view and the screensaver.
 
 Update with `omarchy plugin update io.github.perfect-hero.mondo-block-clock`.
 
+Remove the installed copy with:
+
+```sh
+omarchy plugin remove io.github.perfect-hero.mondo-block-clock
+```
+
 ## Use
 
 | Where | What |
